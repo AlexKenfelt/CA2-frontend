@@ -4,6 +4,8 @@ import LoggedIn from "./Loggedin";
 import LogIn from "./components/Login";
 import Home from './components/home';
 import Header from './components/header';
+import User from "./components/user";
+import Admin from "./components/admin";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +25,12 @@ function App() {
   <Switch>
     <Route exact path="/">
       <Home />
+    </Route>
+    <Route exact path="/user">
+      <User/>
+    </Route>
+    <Route exact path="/admin">
+      <Admin/>
     </Route>
   </Switch>
     </div>
