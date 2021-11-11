@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import facade from "./apiFacade"
+import facade from "./facades/apiFacade"
 
 export default function LoggedIn({facade}) 
 {

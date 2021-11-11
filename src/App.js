@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react"
-import facade from "./apiFacade";
+import facade from "./facades/apiFacade";
 import LoggedIn from "./Loggedin";
-import LogIn from "./Login";
-import Home from './home';
-import Header from './header';
+import LogIn from "./components/Login";
+import Home from './components/home';
+import Header from './components/header';
 import {
   BrowserRouter as Router,
   Switch,
