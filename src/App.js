@@ -19,18 +19,37 @@ import {
  
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('All is good ... so far');
+
+  const logout = () => {
+    facade.logout();
+    setLoggedIn(false);
+    setErrorMessage('Logged out.')
+  };
+
+
   return (
     <div>
-  <Header />
+  <Header facade={facade} loggedIn={loggedIn} />
   <Switch>
     <Route exact path="/">
-      <Home />
+    <Home
+              logout={logout}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              facade={facade}
+              setErrorMessage={setErrorMessage}
+            />
     </Route>
     <Route exact path="/user">
-      <User/>
+    {facade.hasUserAccess('user', loggedIn) && 
+              <User facade={facade} setErrorMessage={setErrorMessage} />}
     </Route>
     <Route exact path="/admin">
-      <Admin/>
+    {facade.hasUserAccess('admin', loggedIn) && 
+              <Admin facade={facade} setErrorMessage={setErrorMessage} />}
     </Route>
   </Switch>
     </div>

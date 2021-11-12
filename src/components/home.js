@@ -1,35 +1,21 @@
 import React, { useEffect, useState } from "react";
-import facade from "../facades/apiFacade";
-import LoggedIn from "../Loggedin";
-import LogIn from "./Login";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch, 
-  NavLink,
-  Prompt
-} from "react-router-dom";
+import LogIn from './Login';
 
-export default function Home() {
-
-    const [loggedIn, setLoggedIn] = useState(false)
- 
-    const logout = () => { facade.logout()
-      setLoggedIn(false) } 
-    const login = (user, pass) => {facade.login(user,pass)
-      .then(res =>setLoggedIn(true));} 
-
-    return (
+function Home({ logout, loggedIn, setLoggedIn, facade, setErrorMessage }) {
+  
+  return (
+    <div>
+      <h1>Home</h1>
+      {!loggedIn ? (
+        <LogIn facade={facade} setLoggedIn={setLoggedIn} setErrorMessage={setErrorMessage} />
+      ) : (
         <div>
-            <h2>This is a temporary home page, login to see additional features.</h2>
-        {!loggedIn ? (<LogIn login={login} />) :
-          (<div>
-            <LoggedIn facade={facade} />
-            <button onClick={logout}>Logout</button>
-          </div>)}
-      </div>
-    );
-  }
+          <p><button onClick={logout}>Logout</button></p>
+          <p>Role: {facade.getUserRoles()}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Home;
