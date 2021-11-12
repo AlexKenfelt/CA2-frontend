@@ -1,9 +1,9 @@
-function Admin() {
-    return (
+function admin() {
+    return ( 
         <div>
-            <h1>This is admin component</h1>
+            <h1>This is a admin component</h1>
         </div>
-      );
+     );
 }
 
-export default Admin;
+export default admin;

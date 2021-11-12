@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-
-function User () {
-
-    return (
+function user() {
+    return (  
         <div>
-            <h1>This is user component</h1>
+            <h1>This is user components</h1>
         </div>
     );
 }
 
-export default User;
+export default user;
