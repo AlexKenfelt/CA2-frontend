@@ -6,8 +6,11 @@ import Home from './components/home';
 import Header from './components/header';
 import User from "./components/user";
 import Admin from "./components/admin";
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 26492a26e4bb6c0ddb69f7a3c55bb96d500f00a4
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,11 +32,19 @@ function App() {
     <Route exact path="/">
       <Home />
     </Route>
+<<<<<<< HEAD
     <Route path="/user">
         <User/>
     </Route>
     <Route path="/admin">
         <Admin/>
+=======
+    <Route exact path="/user">
+      <User/>
+    </Route>
+    <Route exact path="/admin">
+      <Admin/>
+>>>>>>> 26492a26e4bb6c0ddb69f7a3c55bb96d500f00a4
     </Route>
   </Switch>
     </div>
